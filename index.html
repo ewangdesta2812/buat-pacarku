@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halo Adekkk</title>
+    <style>
+      /* Reset */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Gaya Umum */
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #fbeff2;
+        text-align: center;
+      }
+
+      h1 {
+        color: #d24a61;
+        margin-bottom: 20px;
+      }
+
+      img {
+        border-radius: 10px;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        object-fit: cover;
+        margin: 20px 0;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .btn-sayang {
+        background-color: #ff99cc;
+        color: black;
+      }
+
+      .btn-engga {
+        background-color: #cccccc;
+        color: black;
+        position: relative;
+      }
+
+      #loveMessage,
+      .love-images {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .love-images {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .love-images img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* Responsif untuk layar kecil */
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        .btn {
+          padding: 8px 16px;
+          font-size: 16px;
+        }
+
+        .love-images img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Apakah kamu sayang karo Mas Ewang?</h1>
+    <img src="assets/6.jpg" alt="Foto Pasangan" id="fotoPasangan" />
+
+    <div class="buttons">
+      <button class="btn btn-sayang" onclick="showLoveMessage()">Sayang</button>
+      <button class="btn btn-engga" id="btnEngga" onmouseover="moveButton()">
+        Engga
+      </button>
+    </div>
+
+    <div id="loveMessage">
+      <h2>I LOVE YOU! 💕❤️😍😘</h2>
+      <div class="love-images">
+        <img src="assets/9.jpg" alt="Gambar 1" />
+        <img src="assets/2.jpg" alt="Gambar 2" />
+        <img src="assets/4.jpg" alt="Gambar 3" />
+        <img src="assets/5.jpg" alt="Gambar 4" />
+      </div>
+    </div>
+
+    <script>
+      function moveButton() {
+        const button = document.getElementById("btnEngga");
+        const x = Math.floor(
+          Math.random() * (window.innerWidth - button.clientWidth)
+        );
+        const y = Math.floor(
+          Math.random() * (window.innerHeight - button.clientHeight)
+        );
+        button.style.position = "absolute";
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+      }
+
+      function showLoveMessage() {
+        document.getElementById("loveMessage").style.display = "block";
+        document.querySelector(".love-images").style.display = "flex";
+      }
+    </script>
+  </body>
+</html>
